@@ -36,20 +36,20 @@
  
 ### Q4. difference between delete and truncate
 * delete:
- * DML command
- * used to delete all records row by row
- * can be used to delete specific record
- * use where clause with the delete commands
- * slower than truncate
- * will not reset auto-generated id 
+  * DML command
+  * used to delete all records row by row
+  * can be used to delete specific record
+  * use where clause with the delete commands
+  * slower than truncate
+  * will not reset auto-generated id 
  
 * truncate
- * DDL command
- * delete all records at a time
- * cannot be used to delete specific record
- * cannot work with where clause
- * faster than delete
- * reset auto-generate id
+  * DDL command
+  * delete all records at a time
+  * cannot be used to delete specific record
+  * cannot work with where clause
+  * faster than delete
+  * reset auto-generate id
  
 ### Q5. some string manipulation functions 
 * LOWER
