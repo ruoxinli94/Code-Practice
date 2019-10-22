@@ -30,12 +30,14 @@ INSERT INTO @Version(a, b, c, d)
     SELECT 2,3,1,7
 INSERT INTO @Version(a, b, c, d)
     SELECT 3,2,1,5
-
+--find the latest build for each major version. 
 select a,b,c,d from (
 select a,b,c,d,ROW_NUMBER() over (partition by a order by 
 b desc, c desc, d desc) from @Version)  -- use as many as features in feature
 as X(a,b,c,d,latest)
 where latest = 1
+
+-------------------------------------------------------------
 declare @tbl_Orders table
 (
 	OrderID CHAR(5) 
@@ -61,6 +63,14 @@ INSERT INTO @tbl_Orders(OrderID, Step, Status)
 INSERT INTO @tbl_Orders(OrderID, Step, Status)
 	select 'EFQ', 1, 'D'
 Go;
+
+--find order which step is 0 with status D and for the same order other status are P
+with ctetest as 
+( 
+SELECT OrderID,Step,Status FROM tbl_Orders WHERE Step = 0 and Status = 'D'
+)
+select distinct a.OrderID from ctetest a inner join tbl_Orders b on a.OrderID = b.OrderID and b.Status = 'P'
+
 
 -- generate the group of sequences. 
 ;with cte as(
