@@ -1,7 +1,7 @@
 #### Q1..What is the difference between DELETTE and TRUNCATE statements?
 	Delete: 
 		1. Delete command is used to delete a row in a table 
-		2. You can rollback data aster using delete statement 
+		2. You can rollback data after using delete statement 
 			i. Need to begin a transaction in order to rollback 
 		3. It is a DML command 
 		4. It is slower than truncate statement 
@@ -242,7 +242,7 @@ Relationships are defined as the connection between the tables in a database .
 A cross-referencing table needs to be created when the relationship is many to many.
 
 
-#### Q32..Inset null value in table 
+#### Q32..Insert null value in table 
 
 	1. Implicitly by omitting column from column list
 	2. Explicitly by specifying null keyword in the values clause
@@ -252,14 +252,14 @@ A cross-referencing table needs to be created when the relationship is many to m
 
 	1. Between .. And ..
 	Used to display rows based on a range of values in a row:
-	```SQL
+```SQL
   SELECT * FROM student WHERE roll_no between 10 and 50;
-  ```
+```
 	2. In 
 	Used to check for values contained in a specific set of values
-	```SQL
+```SQL
   SELECT * FROM students WHERE roll_no in (8, 15, 25);
-  ```
+```
 	
 #### Q34..Why are sql functions used?
 	1. To perform some calculations on the data
